@@ -1,4 +1,4 @@
-import Mathlib.Data.Rat.Basic
+import Mathlib
 /-!
 # C06 -- Polarization and Hodge-Riemann Bilinear Relations
 Clay Wall 3 | Opera Numerorum | David Fox | June 2026
