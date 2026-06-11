@@ -1,3 +1,4 @@
+import Mathlib.Data.Rat.Basic
 /-!
 # C06 -- Polarization and Hodge-Riemann Bilinear Relations
 Clay Wall 3 | Opera Numerorum | David Fox | June 2026
@@ -6,7 +7,6 @@ Clay Wall 3 | Opera Numerorum | David Fox | June 2026
 --   Corrected v1.7-Replicit: M* * zeta = 12/11 (product, CORRECT).
 --   Certified: Hodge_CM_Replicit_v17_PDF1.pdf SHA faae893a...
 -/
-import Mathlib.Data.Rat.Basic
 
 namespace HodgeAbelian
 
