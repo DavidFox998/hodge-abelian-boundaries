@@ -1,3 +1,5 @@
+import Mathlib.Data.Nat.Basic
+import Mathlib.Data.Fin.Basic
 /-!
 # C03 -- Hodge Structure and Decomposition
 Clay Wall 3 | Opera Numerorum | David Fox | June 2026
@@ -6,8 +8,6 @@ Clay Wall 3 | Opera Numerorum | David Fox | June 2026
 --   Corrected v1.7-Replicit: requires compact Kahler manifold.
 --   Reference: Hodge_Measurements_v17_PDF3.pdf SHA 7e597d98...
 -/
-import Mathlib.Data.Nat.Basic
-import Mathlib.Data.Fin.Basic
 
 namespace HodgeAbelian
 
