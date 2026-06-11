@@ -1,4 +1,4 @@
-import Mathlib.Data.Nat.Basic
+import Mathlib
 /-!
 # C05 -- Primitive Cohomology and Hard Lefschetz
 Clay Wall 3 | Opera Numerorum | David Fox | June 2026
