@@ -1,9 +1,9 @@
+import Mathlib.Data.Nat.Basic
 /-!
 # C04 -- Comparison Isomorphisms
 Clay Wall 3 | Opera Numerorum | David Fox | June 2026
 -- clay := true | sorry_count := 0 | status := FOUNDATIONAL
 -/
-import Mathlib.Data.Nat.Basic
 
 namespace HodgeAbelian
 
