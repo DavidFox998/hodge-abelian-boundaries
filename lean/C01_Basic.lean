@@ -1,3 +1,5 @@
+import Mathlib.Data.Nat.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset
 /-!
 # C01 -- Basic Setup: Complex Varieties and Hodge Numbers
 Clay Wall 3: Hodge Conjecture for Abelian Varieties
@@ -5,8 +7,6 @@ Opera Numerorum / Battle Plan v1.6 | David Fox | June 2026
 -- clay := true | sorry_count := 0 | status := FOUNDATIONAL
 -- Axiom footprint: {propext, Classical.choice, Quot.sound}
 -/
-import Mathlib.Data.Nat.Basic
-import Mathlib.Algebra.BigOperators.Group.Finset
 
 open BigOperators
 
