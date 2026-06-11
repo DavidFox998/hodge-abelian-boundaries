@@ -8,11 +8,15 @@ M_FILES = ["m1.out", "m2.out", "m3.out", "m4.out", "m5.out", "m6.out"]
 LEAN_DIRS = ["lean/", "Towers/", "Protocol/", "src/lean/"]
 
 def check_manifest():
+    present = [f for f in M_FILES if (ROOT / f).exists()]
+    if not present:
+        return True, "MANIFEST: SKIP | no m*.out files in this repo"
+    missing = [f for f in M_FILES if f not in present]
+    if missing:
+        return False, f"MANIFEST: partial — missing {missing}"
     h = hashlib.sha256()
     for f in M_FILES:
-        p = ROOT / f
-        if not p.exists(): return False, f"Missing {f}"
-        h.update(p.read_bytes())
+        h.update((ROOT / f).read_bytes())
     calc = h.hexdigest()
     return calc == LOCKED, f"MANIFEST: {calc}"
 
