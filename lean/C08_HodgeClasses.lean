@@ -1,7 +1,4 @@
-import Mathlib.LinearAlgebra.Matrix.Determinant
-import Mathlib.LinearAlgebra.Matrix.Rank
-import Mathlib.Data.Rat.Basic
-import Mathlib.Data.Finset.Basic
+import Mathlib
 import C07_Abelian
 /-!
 # C08 -- Hodge Classes for NS Tower (Opera Numerorum)
