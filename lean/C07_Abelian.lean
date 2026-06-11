@@ -1,5 +1,4 @@
-import Mathlib.Data.Nat.Basic
-import Mathlib.Data.Rat.Basic
+import Mathlib
 /-!
 # C07 -- Abelian Varieties, CM Type, and J_0(143)
 Clay Wall 3 | Opera Numerorum | David Fox | June 2026
