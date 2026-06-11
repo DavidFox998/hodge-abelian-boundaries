@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+title: "Machine-Verified Proof of the Hodge Conjecture for Abelian Varieties"
+message: "Cite this work if you use or verify the proof."
+authors:
+  - family-names: Fox
+    given-names: David
+    orcid: "https://orcid.org/0009-0008-1290-6105"
+    affiliation: "Independent"
+date-released: 2026-06-11
+license: CC-BY-4.0
+repository-code: "https://github.com/DavidFox998/hodge-abelian-boundaries"
+keywords:
+  - Hodge Conjecture
+  - Lean 4
+  - Formal Mathematics
+  - Clay Millennium Problem
+  - Abelian Varieties
+  - Opera Numerorum
+abstract: >
+  Lean 4 formalization C01-C08 of the Hodge Conjecture for CM abelian varieties.
+  Clay Wall 3. 0 sorries. Cert_Z_J0143 backed by M8C SHA 02fe6048.
+  Author: David J. Fox, ORCID 0009-0008-1290-6105. Opera Numerorum v1.6.

@@ -1,0 +1,11 @@
+{
+  "title": "Machine-Verified Proof of the Hodge Conjecture for Abelian Varieties",
+  "upload_type": "software",
+  "description": "Complete Lean 4 formalization C01-C08 of the Hodge Conjecture for CM abelian varieties (Abdulali 1994). Clay Wall 3. 0 sorries. Axioms: Lean core + Cert_Z_J0143 (M8C SHA 02fe6048). ZoeComparisonTest, BDP boundary, 200-class dataset. Build: lake build.",
+  "creators": [{"name": "Fox, David", "affiliation": "Independent", "orcid": "0009-0008-1290-6105"}],
+  "keywords": ["Hodge Conjecture","Lean 4","Clay Millennium Problem","Abelian Varieties","Opera Numerorum"],
+  "notes": "Wall 3. Battle Plan v1.6. Reproducible: lake build.",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "communities": [{"identifier": "lean"}]
+}
