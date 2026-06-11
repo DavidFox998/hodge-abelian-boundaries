@@ -1,3 +1,5 @@
+import Mathlib.Data.Nat.Basic
+import Mathlib.Data.Rat.Basic
 /-!
 # C07 -- Abelian Varieties, CM Type, and J_0(143)
 Clay Wall 3 | Opera Numerorum | David Fox | June 2026
@@ -7,8 +9,6 @@ Clay Wall 3 | Opera Numerorum | David Fox | June 2026
 -- CLASSICAL THEOREM (Abdulali 1994, Hazama 1995):
 --   Hodge conjecture holds for all CM abelian varieties.
 -/
-import Mathlib.Data.Nat.Basic
-import Mathlib.Data.Rat.Basic
 
 namespace HodgeAbelian
 
