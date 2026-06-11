@@ -1,5 +1,4 @@
-import Mathlib.Data.Nat.Basic
-import Mathlib.Algebra.BigOperators.Group.Finset
+import Mathlib
 /-!
 # C01 -- Basic Setup: Complex Varieties and Hodge Numbers
 Clay Wall 3: Hodge Conjecture for Abelian Varieties
