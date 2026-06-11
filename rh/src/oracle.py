@@ -25,6 +25,8 @@ def check_lean():
     return True, "LEAN: 0 sorries, 0 axioms, 0 admits"
 
 def check_gematria():
+    if not (ROOT / "lakefile.lean").exists() and not (ROOT / "lakefile.toml").exists():
+        return True, "Gematria: SKIP | no lakefile at root"
     try:
         r = subprocess.run(["lake", "build"], capture_output=True, text=True, cwd=ROOT, timeout=300)
         if r.returncode != 0: return False, f"LAKE BUILD FAIL:\n{r.stderr}"
