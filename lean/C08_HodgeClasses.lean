@@ -1,3 +1,8 @@
+import Mathlib.LinearAlgebra.Matrix.Determinant
+import Mathlib.LinearAlgebra.Matrix.Rank
+import Mathlib.Data.Rat.Basic
+import Mathlib.Data.Finset.Basic
+import C07_Abelian
 /-!
 # C08 -- Hodge Classes for NS Tower (Opera Numerorum)
 
@@ -16,12 +21,6 @@ Opera Numerorum (Battle Plan v1.6)
 Chain position: C08 (depends on M8C, C01-C07)
 Sorry count this file: 0
 -/
-
-import Mathlib.LinearAlgebra.Matrix.Determinant
-import Mathlib.LinearAlgebra.Matrix.Rank
-import Mathlib.Data.Rat.Basic
-import Mathlib.Data.Finset.Basic
-import C07_Abelian
 
 namespace TheoremaAureum
 
