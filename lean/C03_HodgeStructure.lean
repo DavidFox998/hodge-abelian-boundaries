@@ -1,5 +1,4 @@
-import Mathlib.Data.Nat.Basic
-import Mathlib.Data.Fin.Basic
+import Mathlib
 /-!
 # C03 -- Hodge Structure and Decomposition
 Clay Wall 3 | Opera Numerorum | David Fox | June 2026
