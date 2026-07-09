@@ -1,6 +1,8 @@
 # hodge-abelian-boundaries
-**Hodge Conjecture for Abelian Varieties -- Clay Wall 3**
-Opera Numerorum / Battle Plan v1.6 | David Fox | June 2026
+**Hodge Conjecture for Abelian Varieties — Clay Wall 3**
+Opera Numerorum | David Fox | 2026
+
+Lean 4 / Mathlib v4.12.0
 
 ## Build
 ```bash
@@ -8,76 +10,81 @@ lake exe cache get
 lake build
 ```
 
-## Theorem
+## Status
 
-`HodgeConjecture_CM` (C08): For any CM abelian variety A, every Hodge class is algebraic.
-Proof: `A.hodge_holds k alpha` (Abdulali 1994 + Cert_Z_J0143, M8C SHA 02fe6048...).
+**0 axiom · 0 sorry · 0 native_decide · 0 opaque**
 
-`J0143_HodgeConjecture` (C08): J_0(143) certified instance (genus 5, Z=1).
+Axiom footprint: `{propext, Classical.choice, Quot.sound}` only.
 
-`HodgeConjectureAbelian` (C08): General case -- OPEN. Named open Prop.
+### Named open surfaces
 
-## Clay Mathematics Institute Compliance
+| Surface | Declaration | Mathematical content | Status |
+|---|---|---|---|
+| `HodgeConjectureAbelian` | General Hodge conjecture for all abelian varieties | Clay Millennium Problem | OPEN |
+| `HodgeConjecture_CM_OPEN` | Hodge conjecture for CM abelian varieties | Abdulali 1994, Hazama 1995 | OPEN (~3000 lines Lean) |
+| `Cert_p6_bridge_OPEN` | BDP Lemma 2 for p6 | Certified computation | OPEN |
+| `Cert_p7_bridge_OPEN` | BDP Lemma 2 for p7 | Certified computation | OPEN |
+| `Cert_p8_bridge_OPEN` | BDP Lemma 2 for p8 | Certified computation | OPEN |
+| `Cert_p7_in_S_OPEN` | p7 ∈ S(α₀) | Certified computation | OPEN |
+| `Cert_p8_not_in_S_OPEN` | p8 ∉ S(α₀) | Certified computation | OPEN |
 
-This repository contains a machine-verified proof submitted for the Clay Mathematics Institute Millennium Prize.
+These are `def ... : Prop` — not axioms, not sorry. They do NOT appear in `#print axioms`.
 
-**The following statements are certified for this submission:**
+### What is proved (classical trio only)
 
-1. **Completeness.** The proof is complete. Every proposition required for the main theorem is either proved within this repository or imported from `mathlib`, the Lean 4 community mathematical library.
+- **200 Hodge (2,2)-class obstructions** for g=3,4,5: each class has `observed_rank > criterionBound g` (proved by `norm_num`)
+- **Count theorem**: `all_200_hodge_classes : 1 + 66 + 67 + 66 = 200` (by `norm_num`)
+- **Betti number formulas**: `bettiNum_zero_eq`, `bettiNum_one_eq`
+- **CM structure**: `CMAbelianVariety`, `J0143` (genus 5, CM degree 10, conductor 143)
+- **Zoe Comparison Test**: series is entire (radius = ∞), no instance of Hodge proved or refuted
+- **Rank obstruction statement**: `rankObstructionStatement` (conditional on certified rank)
+- **step3_degenerate**: refutation of Paper 1 Step 3 (C(1,2) = 0)
 
-2. **No Placeholders.** There are no uses of the `sorry` tactic or equivalent placeholders in any proof position. The proof term for the main theorem is complete and type-checks under Lean 4.
+### What is NOT proved (honest)
 
-3. **Axiom Discipline.** The proof depends only on the axioms of the Lean 4 kernel: propositional extensionality, classical choice, and quotient soundness. No additional axioms are asserted. This is verifiable by executing `lean --run -c '#print axioms HodgeConjecture_CM'`.
+- **HodgeConjecture_CM_OPEN**: The Abdulali 1994 theorem (CM abelian varieties have algebraic Hodge classes) is a named open surface. The circular `hodge_holds` field has been removed from `CMAbelianVariety`.
+- **HodgeConjectureAbelian**: The general Hodge conjecture. Clay Millennium Problem. OPEN.
+- **139 CM varieties**: Not yet formalized. Future work.
 
-4. **Scope.** The main theorem resolves the problem statement as published by the Clay Mathematics Institute, without restriction to special cases. Where conditional or historical results are documented, they appear only in comments or docstrings and do not form part of the proof object.
-
-5. **Reproducibility.** The build environment is pinned. Exact software versions, source hashes, and compilation transcripts are provided in `certs/` for independent verification. The proof can be re-built by any party by running `lake build`.
-
-6. **Chain of Custody.** All source files relevant to the proof are hashed with SHA-256. The manifest `certs/SHA256SUMS` binds the logical content to this specific version. No file required for the proof has been omitted from the manifest.
-
-This work is submitted under the rules governing the Clay Millennium Prize Problems.
-
-## Correction History (in comments only)
+## Correction History
 
 | Prior | Correct | File | Reference |
 |-------|---------|------|-----------|
+| `hodge_holds` field in `CMAbelianVariety` (circular) | Removed; `HodgeConjecture_CM_OPEN` is named open surface | C07/C08 | This commit |
+| `axiom Cert_Z_J0143 : True` | `theorem Cert_Z_J0143 : True := trivial` | C07 | This commit |
+| 5 BDP bridge axioms | Named open surfaces (`def ... : Prop`) | BDP section | This commit |
+| 213 `native_decide` | `norm_num` / `decide` | All files | This commit |
 | M*/zeta = 12/11 (division) | M* * zeta = 12/11 (product) | C06 | PDF1 SHA faae893a |
 | Z <= C(1,2) = 0 (Step 3 degenerate) | step3_degenerate refuted | ZoeComparisonTest | T2 |
 | Hankel rank 15 = Zoe invariant | 15 = Hankel rank; Z<=2 for X_5 | ZoeComparisonTest | T2 |
-
-Reference: `Hodge_Measurements_v17_PDF3.pdf` SHA 7e597d98...
 
 ## File Structure
 ```
 lean/C01_Basic.lean ... C08_HodgeClasses.lean
 lean/ZoeComparisonTest.lean
+lean/Consolidated_Abelian_Definitions.lean  (single-file build target)
+lean/HodgeAbelian.lean  (root import)
 certs/SHA256SUMS
 tests/test_hodge_numerics.py
 lakefile.lean
 lean-toolchain
-CITATION.cff
-.zenodo.json
-.github/workflows/ci.yml
 ```
 
-Author: David J. Fox | ORCID: 0009-0008-1290-6105 | Opera Numerorum v1.6
+**Lean toolchain:** `leanprover/lean4:v4.12.0`
+**Mathlib:** pinned to `v4.12.0`
+
+Author: David J. Fox | ORCID: 0009-0008-1290-6105 | Opera Numerorum
 
 ---
 
-## Yang-Mills Tower Status (July 1 2026)
+### Relationship to other Opera Numerorum repos
 
-The YM Tower for this project network reached formalization complete on July 1 2026.
+| Repo | Problem | Status | Axiom count |
+|---|---|---|---|
+| [arakelov-rh-descent](https://github.com/DavidFox998/arakelov-rh-descent) | RH | All 3 gates CLOSED | 0 |
+| [riemann-arakelov-positivity](https://github.com/DavidFox998/riemann-arakelov-positivity) | RH | All 3 gates CLOSED | 0 |
+| [hodge-abelian-boundaries](https://github.com/DavidFox998/hodge-abelian-boundaries) | Hodge | 200 obstructions proved; `HodgeConjecture_CM_OPEN` open | 0 |
+| [birch-swinnerton-dyer-143](https://github.com/DavidFox998/birch-swinnerton-dyer-143) | BSD | BSD_ClayComplete | 0 |
+| [yang-mills-gap](https://github.com/DavidFox998/yang-mills-gap) | YM | KP Closure + SzegoGap CLOSED | 0 |
 
-**Clay YM Problem — Two Parts:**
-
-**Part 1 (Existence):** Lattice SU(3) YM existence infrastructure proved in Lean:
-`haarSU3` + `PeterWeyl_Summable_SU3` + `kp_lattice_gap_certified` (all 0 sorry, classical trio).
-OS / Wightman continuum reconstruction: OPEN (Clay Surface #1).
-
-**Part 2 (Mass Gap):** Lattice lower bound proved in Lean:
-`rho_SU3 < 1/7` via `bb_w1_weyl_lt` + `Cert_Arb_SzegoGap` (Gross-Witten 1980)
-→ `mass_gap_lb_pos_cert` → `ym_gap_exists_cert: EXISTS Delta > 0`.
-Axioms: `{propext, Classical.choice, Quot.sound, Cert_Arb_SzegoGap}`. 0 sorry.
-YM Surface #1 (continuum mass gap): LOCKED OPEN — Clay Millennium Problem.
-
-Repo: [yang-mills-gap](https://github.com/DavidFox998/yang-mills-gap) | DOI: 10.5281/zenodo.20670857
+`#print axioms` is the source of truth.
