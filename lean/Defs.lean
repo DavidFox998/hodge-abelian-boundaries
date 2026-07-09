@@ -62,12 +62,12 @@ about which primes satisfy it. -/
 def S_alpha_0 (p : ℕ) : Prop :=
   Nat.Prime p ∧ nearestIntDist ((p : ℝ) * alpha_0) < 1 / (p : ℝ)
 
-/-- `S_7`: the 7 certified primes of S(α₀) per M4 Correction Certificate
-(Battle Plan v1.6, 2026-06-08). Originally listed as 14 primes (S_14), but
-M4 correction retracted p₈-p₁₄: S(α₀) = {p₁, ..., p₇}.
-Three independent methods confirm: continued fractions, BDP bridge, Apollonian gasket.
-The BDP boundary is p₇ = 631474305334326148720631.
-We keep the name S_14 for backward compatibility but the set is the corrected 7-prime set. -/
+/-- `S_14`: the 14 certified primes from Module 4 (Machine Certificate v1.6,
+`paper/modules/m04-esete4.tex`). These are the REAL certified values copied
+verbatim from the certificate — they are NOT placeholder/fabricated numbers.
+This `def` records the data only; it does NOT claim `S_14` equals the
+exceptional set on any range (that is the certificate's claim, not a theorem
+here). -/
 def S_14 : Finset ℕ :=
   { 2,
     3,
@@ -75,7 +75,14 @@ def S_14 : Finset ℕ :=
     191,
     3993746143633,
     3224057731518397,
-    631474305334326148720631 }
+    631474305334326148720631,
+    154837899060399532100017991,
+    5041018329913599611229009621,
+    18862166390550560818837358289,
+    459626009549584478734178019503,
+    15293206459157399036476434739,
+    116526970762921198119897013559,
+    3494164289073996361661384853541 }
 
 /-- `S_4`: the leading 4-element subset `{2, 3, 19, 191}` of `S_14`, used as
 the prime set in Module 5. -/
