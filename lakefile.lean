@@ -15,5 +15,6 @@ lean_lib HodgeAbelian where
     `Defs,
     `Twelve,
     `SMap,
-    `ZoeComparisonTest
+    `ZoeComparisonTest,
+    `HodgeBridge
   ]
