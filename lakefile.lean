@@ -12,9 +12,17 @@ lean_lib HodgeAbelian where
   roots := #[
     `Consolidated_Abelian_Definitions,
     `HodgeMathlib,
+    `HodgeBridge,
     `Defs,
     `Twelve,
     `SMap,
     `ZoeComparisonTest,
-    `HodgeBridge
+    `M9_WeilTransfer,
+    `Compute,
+    `AutoLemmas,
+    `Operator,
+    `OperatorV2,
+    `UniformGap_Placeholder,
+    `Perron_Placeholder,
+    `SUPERBRIC_MORNINGSTAR_1419
   ]
