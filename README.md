@@ -24,23 +24,11 @@ Axiom footprint: `{propext, Classical.choice, Quot.sound}` only.
 
 ### What is NOT proved (honest)
 
-- **HodgeConjecture_CM_OPEN**: The Abdulali 1994 theorem (CM abelian varieties have algebraic Hodge classes) is a named open surface. The circular `hodge_holds` field has been removed from `CMAbelianVariety`.
+- **HodgeConjecture_CM_OPEN**: The Abdulali 1994 theorem (CM abelian varieties have algebraic Hodge classes) is a named open surface.
 - **HodgeConjectureAbelian**: The general Hodge conjecture. Clay Millennium Problem. OPEN.
 - **139 CM varieties**: Not yet formalized. Future work.
 
-## Correction History
-
-| Prior | Correct | File | Reference |
-|-------|---------|------|-----------|
-| `hodge_holds` field in `CMAbelianVariety` (circular) | Removed; `HodgeConjecture_CM_OPEN` is named open surface | C07/C08 | This commit |
-| `axiom Cert_Z_J0143 : True` | `theorem Cert_Z_J0143 : True := trivial` | C07 | This commit |
-| 5 BDP bridge axioms | Named open surfaces (`def ... : Prop`) | BDP section | This commit |
-| 213 `native_decide` | `norm_num` / `decide` | All files | This commit |
-| M*/zeta = 12/11 (division) | M* * zeta = 12/11 (product) | C06 | PDF1 SHA faae893a |
-| Z <= C(1,2) = 0 (Step 3 degenerate) | step3_degenerate refuted | ZoeComparisonTest | T2 |
-| Hankel rank 15 = Zoe invariant | 15 = Hankel rank; Z<=2 for X_5 | ZoeComparisonTest | T2 |
-
-## File Structure
+ File Structure
 ```
 lean/C01_Basic.lean ... C08_HodgeClasses.lean
 lean/ZoeComparisonTest.lean
