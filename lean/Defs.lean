@@ -42,6 +42,7 @@ import Mathlib.Data.Real.Pi.Bounds
 import Mathlib.Algebra.Order.Floor
 import Mathlib.Data.Nat.Prime.Basic
 import Mathlib.Data.Finset.Basic
+import Mathlib.Analysis.SpecialFunctions.Log.Basic
 
 namespace TheoremaAureum.Towers.Hodge.Defs
 
@@ -56,11 +57,12 @@ distance-to-nearest-integer, NOT the absolute value of `x`. -/
 noncomputable def nearestIntDist (x : ℝ) : ℝ := |x - (round x : ℝ)|
 
 /-- The exceptional-set predicate for `α₀`:
-`p` is prime and `‖p · α₀‖ < 1/p` (distance to nearest integer).
-This is the definition of `S(α₀)` from the certificate; it asserts nothing
-about which primes satisfy it. -/
+`p` is prime and `‖p · α₀‖ < 1/(2·ln p)` (distance to nearest integer).
+This is the M4 certificate condition: S(α₀) = {p prime : ‖p·α₀‖ < 1/(2 ln p)}.
+The threshold 1/(2 ln p) is the Bost-Connes exceptional-set condition
+(weaker than 1/p for large p, allowing the large certified primes). -/
 def S_alpha_0 (p : ℕ) : Prop :=
-  Nat.Prime p ∧ nearestIntDist ((p : ℝ) * alpha_0) < 1 / (p : ℝ)
+  Nat.Prime p ∧ nearestIntDist ((p : ℝ) * alpha_0) < 1 / (2 * Real.log (p : ℝ))
 
 /-- `S_14`: the 14 certified primes from Module 4 (Machine Certificate v1.6,
 `paper/modules/m04-esete4.tex`). These are the REAL certified values copied
