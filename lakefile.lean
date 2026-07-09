@@ -9,4 +9,11 @@ require mathlib from git
 @[default_target]
 lean_lib HodgeAbelian where
   srcDir := "lean"
-  roots := #[`Consolidated_Abelian_Definitions, `HodgeMathlib]
+  roots := #[
+    `Consolidated_Abelian_Definitions,
+    `HodgeMathlib,
+    `Defs,
+    `Twelve,
+    `SMap,
+    `ZoeComparisonTest
+  ]
