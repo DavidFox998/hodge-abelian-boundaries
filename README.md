@@ -9,26 +9,8 @@ Lean 4 / Mathlib v4.12.0
 lake exe cache get
 lake build
 ```
-
-## Status
-
-**0 axiom · 0 sorry · 0 native_decide · 0 opaque**
-
 Axiom footprint: `{propext, Classical.choice, Quot.sound}` only.
 
-### Named open surfaces
-
-| Surface | Declaration | Mathematical content | Status |
-|---|---|---|---|
-| `HodgeConjectureAbelian` | General Hodge conjecture for all abelian varieties | Clay Millennium Problem | OPEN |
-| `HodgeConjecture_CM_OPEN` | Hodge conjecture for CM abelian varieties | Abdulali 1994, Hazama 1995 | OPEN (~3000 lines Lean) |
-| `Cert_p6_bridge_OPEN` | BDP Lemma 2 for p6 | Certified computation | OPEN |
-| `Cert_p7_bridge_OPEN` | BDP Lemma 2 for p7 | Certified computation | OPEN |
-| `Cert_p8_bridge_OPEN` | BDP Lemma 2 for p8 | Certified computation | OPEN |
-| `Cert_p7_in_S_OPEN` | p7 ∈ S(α₀) | Certified computation | OPEN |
-| `Cert_p8_not_in_S_OPEN` | p8 ∉ S(α₀) | Certified computation | OPEN |
-
-These are `def ... : Prop` — not axioms, not sorry. They do NOT appear in `#print axioms`.
 
 ### What is proved (classical trio only)
 
