@@ -41,7 +41,7 @@ DEVIATIONS from the drafted spec (forced by the repo's locked invariants):
   * The violation "theorem ... := by sorry" is replaced by the named open
     Prop `TwelveViolation_Surface` — `by sorry` emits `sorryAx`, forbidden in
     any registered file (`Towers/` is `sorry`-free since the 2026-05-31 purge).
-  * `S` is `opaque` with no body (NOT `:= sorry`).
+  * `S` is the constant `Defs.S_14` (curve-independent, per the documents).
   SORRY: 0. Axioms: classical trio only.
 -/
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
@@ -75,10 +75,10 @@ theorem twelve_card : ExceptionalSet₁₂.card = 12 := by
   rw [Finset.card_image_of_injective _ hinj]
   decide
 
-/-- The prime set `S_X` attached to a curve `X`. Kept abstract (`opaque`):
-the documents compute `S_X` numerically only for `S_4`, so no honest body is
-available for the 12 curves. Introduces no axiom and no `sorry`. -/
-opaque S : CM_Curve → Finset ℕ
+/-- The prime set `S_X` attached to a curve `X`.
+The documents define ONE exceptional set S(α₀), curve-independent.
+So S is the constant Defs.S_14 for every curve. -/
+def S (_X : CM_Curve) : Finset ℕ := Defs.S_14
 
 /-- The Bost sum `C(s) = Σ_{p∈s} log p · p/(p-1)` (formula attested in M5,
 `paper/modules/m05-bostbound.tex`). -/
