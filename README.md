@@ -46,4 +46,3 @@ Lean 4 + Mathlib v4.12.0. **0 sorry. 0 axiom.**
 
 **Axiom footprint:** `#print axioms → {propext, Classical.choice, Quot.sound}` only.
 
-**Build:**
