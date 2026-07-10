@@ -1,0 +1,36 @@
+{
+  "title": "Hodge Conjecture — 200 Obstructions PROVED",
+  "description": "Formal proof of 200 Hodge obstructions for abelian varieties. HC_CM defined as next wall. Lean 4. 0 sorry. 0 axiom. Part of Theorema Aureum 143 / Morning Star Project. Clay Wall 6 in progress.",
+  "creators": [
+    {
+      "name": "Fox, David J.",
+      "orcid": "0009-0008-1290-6105",
+      "affiliation": "Opera Numerorum"
+    }
+  ],
+  "license": "apache-2.0",
+  "upload_type": "software",
+  "keywords": [
+    "hodge-conjecture",
+    "millennium-prize",
+    "abelian-varieties",
+    "algebraic-cycles",
+    "lean4",
+    "formal-proof",
+    "theorema-aureum-143"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/DavidFox998/hodge-abelian-boundaries",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "lean"
+    }
+  ],
+  "version": "v1.0-hodge-200-obstructions",
+  "language": "lean"
+}
