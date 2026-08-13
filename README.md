@@ -57,3 +57,24 @@ Lean 4 + Mathlib v4.12.0. **0 sorry. 0 axiom.**
 | `hodge-abelian-boundaries` | Hodge | **200 obstructions PROVED**; HC_CM `def` — next wall | 0 |
 
 **`#print axioms` is the source of truth.** All repos: `{propext, Classical.choice, Quot.sound}` only.
+
+
+### 4 RH Routes — Same C
+
+**[riemann-arakelov-positivity](https://github.com/DavidFox998/riemann-arakelov-positivity)** — Route A — `ω²=48/13>0`
+**[arakelov-rh-descent](https://github.com/DavidFox998/arakelov-rh-descent)** — Route B — `λ₁≥975/4096` → `S14`
+**[rh-growth-contradiction](https://github.com/DavidFox998/rh-growth-contradiction)** — Route C — `C>2√13` Poussin
+**[brothers-desert-proof](https://github.com/DavidFox998/brothers-desert-proof)** — Route D — `S4={2,3,19,191}` desert 192..1000
+
+### Full Opera Map
+
+**[arakelov-positivity-rh-core](https://github.com/DavidFox998/arakelov-positivity-rh-core)** — ROOT V2 — `M2 kappa M7 Manifest M8C Zoe-M*`
+**[rh-p5-bridge-14](https://github.com/DavidFox998/rh-p5-bridge-14)** — Keystone — `q5=226 q6=165849 cf_bound=82829 |S14|=14`
+**[bost-connes](https://github.com/DavidFox998/bost-connes)** — Hub — `C(S₄)=11.422...` 21 bricks #173 GREEN
+**[yang-mills-gap](https://github.com/DavidFox998/yang-mills-gap)** — Mass gap — `ρ<1/7→Δ>0` — same gap structure
+**[navier-stokes](https://github.com/DavidFox998/navier-stokes)** — `Θ(t)` summable Path A 8/8 + B 4/4
+**[birch-swinnerton-dyer-143a1](https://github.com/DavidFox998/birch-swinnerton-dyer-143a1)** — BSD — Heegner rank 0 example M1-M5
+
+### THIS REPO
+
+**[hodge-abelian-boundaries](https://github.com/DavidFox998/hodge-abelian-boundaries)** — Clay Wall 3 — 200 measured obstructions `observed_rank > criterionBound` — `g=3:4>3 g=4:7>6 g=5:15>10` M8C-certified `Z=15 M*=4/55` vs `J₀143 M*·ζ=12/11` — `ZoeComparisonTest` entire `R=∞` — transcendental bridge vacuous — applied algebraic geometry — 0 sorry trio — `HodgeConjecture_CM_OPEN` OPEN.
