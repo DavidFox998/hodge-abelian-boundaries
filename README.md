@@ -58,7 +58,6 @@ Lean 4 + Mathlib v4.12.0. **0 sorry. 0 axiom.**
 
 **`#print axioms` is the source of truth.** All repos: `{propext, Classical.choice, Quot.sound}` only.
 
-
 ### 4 RH Routes — Same C
 
 **[riemann-arakelov-positivity](https://github.com/DavidFox998/riemann-arakelov-positivity)** — Route A — `ω²=48/13>0`
@@ -103,6 +102,7 @@ Lean 4 + Mathlib v4.12.0. **0 sorry. 0 axiom.**
 ---
 
 ORCID: [0009-0008-1290-6105](https://orcid.org/0009-0008-1290-6105) · Archive: [pistus-theoria](https://github.com/DavidFox998/pistus-theoria) — `OperaNumerorum_MasterEquations.pdf SHA 7f6b31b4`
+**Ensemble:** `sha256:e1617bc96018da4577f153f2e0cd8cc4eda1183434a9624b6cefaedc655db6c5` · hub [`rh-p5-bridge-14`](https://github.com/DavidFox998/rh-p5-bridge-14) · anchor `d04e4bd1`
 ## Author
 
 David J. Fox · Independent researcher · Aberdeen, WA
