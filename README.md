@@ -1,5 +1,8 @@
 # Hodge Conjecture via Abelian Boundaries — 200 Measured Obstructions
 
+> **Opera Numerorum ensemble** — 19 repos · chain `7472f4e5` · [REPOS.md →](https://github.com/DavidFox998/rh-p5-bridge-14/blob/main/REPOS.md)
+
+
 ### What this is — Clay Wall 3
 
 The Hodge Conjecture asks: is every Hodge class on a smooth projective variety algebraic?
