@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21926558.svg)](https://doi.org/10.5281/zenodo.21926558) [![CI](https://github.com/DavidFox998/hodge-abelian-boundaries/actions/workflows/ci.yml/badge.svg)](https://github.com/DavidFox998/hodge-abelian-boundaries/actions/workflows/ci.yml)
+
 # Hodge Conjecture via Abelian Boundaries — 200 Measured Obstructions
 
 > **Opera Numerorum ensemble** — 19 repos · chain `7472f4e5` · [REPOS.md →](https://github.com/DavidFox998/rh-p5-bridge-14/blob/main/REPOS.md)
