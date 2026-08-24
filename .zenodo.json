@@ -1,11 +1,36 @@
 {
-  "title": "Machine-Verified Proof of the Hodge Conjecture for Abelian Varieties",
+  "title": "Hodge (2,2)-Class Obstructions on CM Abelian Varieties — Lean 4 Formalization",
   "upload_type": "software",
-  "description": "Complete Lean 4 formalization C01-C08 of the Hodge Conjecture for CM abelian varieties (Abdulali 1994). Clay Wall 3. 0 sorries. Axioms: Lean core + Cert_Z_J0143 (M8C SHA 02fe6048). ZoeComparisonTest, BDP boundary, 200-class dataset. Build: lake build.",
-  "creators": [{"name": "Fox, David", "affiliation": "Independent", "orcid": "0009-0008-1290-6105"}],
-  "keywords": ["Hodge Conjecture","Lean 4","Clay Millennium Problem","Abelian Varieties","Opera Numerorum"],
-  "notes": "Wall 3. Battle Plan v1.6. Reproducible: lake build.",
+  "description": "Lean 4 formalization of the Lean 4 formalization of 200 measured Hodge (2,2)-class obstructions on CM abelian varieties of genera 3, 4, and 5. This repository is part of David Fox's Opera Numerorum ensemble.",
+  "creators": [
+    {
+      "name": "Fox, David",
+      "affiliation": "Opera Numerorum",
+      "orcid": "0009-0008-1290-6105"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Hodge conjecture",
+    "Hodge (2,2)-classes",
+    "CM abelian varieties",
+    "Lean 4",
+    "formal verification",
+    "algebraic geometry",
+    "Opera Numerorum"
+  ],
   "access_right": "open",
-  "license": "cc-by-4.0",
-  "communities": [{"identifier": "lean"}]
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/DavidFox998/hodge-abelian-boundaries",
+      "relation": "isSupplementTo",
+      "resource_type": "software"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "lean"
+    }
+  ],
+  "language": "en"
 }
