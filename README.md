@@ -1,114 +1,93 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21926558.svg)](https://doi.org/10.5281/zenodo.21926558) [![CI](https://github.com/DavidFox998/hodge-abelian-boundaries/actions/workflows/ci.yml/badge.svg)](https://github.com/DavidFox998/hodge-abelian-boundaries/actions/workflows/ci.yml)
 
-# Hodge Conjecture via Abelian Boundaries — 200 Measured Obstructions
+# hodge-abelian-boundaries — measured Hodge classes, plus two J₀(26) factors
 
-> **Opera Numerorum ensemble** — 19 repos · chain `7472f4e5` · [REPOS.md →](https://github.com/DavidFox998/rh-p5-bridge-14/blob/main/REPOS.md)
+Lean record of measured Hodge (2,2)-class obstructions on CM abelian varieties, with a standalone g=1 layer taken from the beal-conjecture Level 26 scaffold.
 
+This repository does not prove the Hodge conjecture.
 
-### What this is — Clay Wall 3
+## Counts on this branch
 
-The Hodge Conjecture asks: is every Hodge class on a smooth projective variety algebraic?
+Counted from `*.lean` files outside `.lake` and `.git`, before the new file: **391** `def`s, **366** `theorem`s, **39** `structure`s, **9** `abbrev`s, **6** `axiom`s, **28** Lean files.
 
-**This repo doesn’t prove the full conjecture.** It does something harder: **it measures.**
+The 200 measured class definitions are in `lean/Consolidated_Abelian_Definitions.lean`:
 
-For 200 concrete Hodge (2,2)-classes on CM abelian varieties of genus 3, 4, and 5, we compute `observed_rank` and prove it exceeds the `criterionBound g`. Each excess is an obstruction — a concrete, numerical witness that naive algebraicity fails.
+- g=3: `class1_g3` … `class67_g3` (67)
+- g=4: `class1_g4` … `class67_g4` (67)
+- g=5: `class1_g5` … `class66_g5` (66)
 
-**The breakthrough:** Nobody has this measurement. Nobody has this in Lean. This is the first time a proof assistant has touched Hodge with real numbers. 
+67 + 67 + 66 = 200. The other 191 `def`s are the rest of that 391. The new file adds four `def`s (`factor26a1_standalone`, `factor26b1_standalone`, and the two prefix-length checks), so the tree then has 395 `def`s.
 
-**Core principle: If a Hodge class has rank obstruction, it cannot be algebraic without new geometry.** We found 200.
+The six existing axioms are unchanged: `Cert_Z_J0143` in `lean/C07_Abelian.lean`, and `Cert_p6_bridge`, `Cert_p7_bridge`, `Cert_p8_bridge`, `Cert_p7_in_S`, `Cert_p8_not_in_S` in `lean/C08_HodgeClasses.lean`. The new J₀(26) file adds no `axiom` and no `sorry`. No proof in the tree uses the `sorry` tactic. The word appears in comments.
 
-This is applied algebraic geometry. This is Clay Wall 3 of Opera Numerorum.
+## New varieties — g=1 from X₀(26) / J₀(26)
 
-### Why this matters — The measurement
+Two elliptic factors, dimension 1+1 = 2. Data copied from `certs/j0_26_decomposition.json` (beal-conjecture `e657d15c`, 2026-09-04, v1.3.0). The BSD quotients are the numerals in beal-conjecture `J0_26_BSD_26a1_26b1.lean`. They are not fields of that JSON.
 
-Classical Hodge theory is existential: “there exists an algebraic cycle...” 
+- `26a(1,26)`, Cremona `26a1`, Weierstrass `[1, 0, 1, -5, -8]`, Δ = `-17576`, q-expansion `a₀`…`a₂₀` = `[0, 1, -1, 1, 1, -3, -1, -1, -1, -2, 3, 6, 1, 1, 1, -3, 1, -3, 2, 2, -3]`, L/Ω = `1/3`
+- `26b(1,26)`, Cremona `26b1`, Weierstrass `[1, -1, 1, -3, 3]`, Δ = `-1664`, q-expansion `a₀`…`a₂₀` = `[0, 1, 1, -3, 1, -1, -3, 1, 1, 6, -1, -2, -3, -1, 1, 3, 1, -3, 6, 6, -1]`, L/Ω = `1/7`
 
-**This work is observational:** “Here are 200 classes. Here are their ranks. Here is the bound. They fail.”
+The buildable module is `Hodge/Abelian/G1_J0_26/J0_26_Two_Varieties_Standalone.lean`. It does not import beal-conjecture. `standalone/J0_26_Decomp_Beal_Original.lean` is an archival copy of the original Lean file and is not a build target. The generator is `sagemath/j0_26_decomp_foundation.sage`.
 
-1 + 66 + 67 + 66 = 200. Each proved by `norm_num`. Each rank certified. 
+In beal-conjecture, `frey_modular_13` (`FreyModularity_13.lean`) and `ribet_level_lowering_26` (`RibetLevelLowering_26.lean`) are axioms that sit on this geometry. They are not copied in as theorems here.
 
-**The beauty:** We turned Hodge into arithmetic. For J₀(143), a genus 5 CM abelian variety with conductor 143, we compute everything. No conjectures. No heuristics. Just `observed_rank > criterionBound`.
+## Layout
 
-**This is one of the first real applied science breakthroughs from the Opera Numerorum.** We’re not philosophizing about cycles. We’re counting them.
+- `lean/Consolidated_Abelian_Definitions.lean` — the 200 class definitions for g=3, 4, 5
+- `Hodge/Abelian/G3_J0_143/`, `G4_J0_143/`, `G5_J0_143/` — indexes for those 67, 67, and 66 classes
+- `Hodge/Abelian/G1_J0_26/` — the two new J₀(26) factors
+- `certs/j0_26_decomposition.json` — the v1.3.0 certificate
+- `standalone/` — archival Lean and Sage copies, no private imports
 
-### Formalization
+## Opera Numerorum — public repos
 
-Lean 4 + Mathlib v4.12.0. **0 sorry. 0 axiom.**
+Routes A–D are the public workspace [riemann-hypothesis-four-routes](https://github.com/DavidFox998/riemann-hypothesis-four-routes).
 
-**Status:** **200 OBSTRUCTIONS PROVED.** The general Hodge Conjecture remains open.
+[arakelov-positivity-rh-core](https://github.com/DavidFox998/arakelov-positivity-rh-core) — ROOT V2 — Arakelov height ω²=48/13>0 ; Zoe-M*, M4 10^4000 boundary — provides height input all RH voices reuse
 
-**What is proved (classical trio only):**
-- **200 Hodge (2,2)-class obstructions** for g=3,4,5: `observed_rank > criterionBound g` — **PROVED**
-- **Count theorem:** `all_200_hodge_classes : 1 + 66 + 67 + 66 = 200` — **PROVED**
-- **Betti number formulas:** `bettiNum_zero_eq`, `bettiNum_one_eq` — **PROVED**
-- **CM structure:** `CMAbelianVariety`, `J0143` — genus 5, CM degree 10, conductor 143 — **PROVED**
-- **step3_degenerate:** Refutation of Paper 1 Step 3 `C(1,2) = 0` — **PROVED**
+[rh-p5-bridge-14](https://github.com/DavidFox998/rh-p5-bridge-14) — Keystone — q5=226, q6=165849, cf_bound=82829 — reduces infinite S_a0 to finite S14 ; closes BSD_143_PROVED → RiemannHypothesis — condensed single checkout 6cefaf3 PR78 verify ensemble green da3b943c662f vs lock 6ec00281c55d lake build Towers 0
 
-**What is NOT proved (honest):**
-- **HodgeConjecture_CM_OPEN:** The Abdulali 1994 theorem for CM abelian varieties is a named `def`, not an axiom. **It is not proved in this repo.** It is the next wall.
-- **HodgeConjectureAbelian:** The general Clay Millennium Problem. **OPEN.**
-- **139 CM varieties:** Measured, not yet formalized. Future work.
+[riemann-hypothesis-four-routes](https://github.com/DavidFox998/riemann-hypothesis-four-routes) — Four Routes — PUBLICATION WORKSPACE Routes A-D — RH Core, P5 bridge, four independent formal routes preserved at exact revisions one toolchain one RH predicate — Route A Act I Abbes-Ullmo ω²=48/13>0 Siegel zero → negative height, Route B Act II Kim-Sarnak λ1≥975/4096 Selberg=Bost-Connes GRH X0(143)→RH 35pp BC6, Route C Act III Littlewood Ω exp(c√(log t / log log t)) beats (log t)² zero repulsion, Route D Act IV Dirichlet jitter ‖p·a_q‖<1/p 35 brothers collision-free swarming orbit stability Re=1/2 — all CLOSED via S4 — 7ce83ae
 
-**Axiom footprint:** `#print axioms → {propext, Classical.choice, Quot.sound}` only.
+[bost-connes](https://github.com/DavidFox998/bost-connes) — Arithmetic hub — C(S4)=11.422...>2√13, Gates M1-M3→M4-M8, 21 bricks 0 sorry — #173 GREEN
 
-### Relationship to Opera Numerorum
+[birch-swinnerton-dyer-143a1](https://github.com/DavidFox998/birch-swinnerton-dyer-143a1) — BSD 143a1 — rank 1, Heegner point (4,6), L(143a1,1)≠0, |Sha|=1 — worked example M1-M5 arithmetic in action
 
-| Repo | Problem | Status | Axiom count |
-| --- | --- | --- | --- |
-| `riemann-arakelov-positivity` | RH | **Route A:** All 3 gates CLOSED — **PROVED** | 0 |
-| `arakelov-rh-descent` | RH | **Route B:** All 3 gates CLOSED — **PROVED** | 0 |
-| `birch-swinnerton-dyer-143` | BSD | BSD_ClayComplete — **PROVED** | 0 |
-| `yang-mills-gap` | YM | KP Closure + SzegoGap CLOSED — **PROVED** | 0 |
-| `hodge-abelian-boundaries` | Hodge | **200 obstructions PROVED**; HC_CM `def` — next wall | 0 |
+[lindelof-hypothesis-143](https://github.com/DavidFox998/lindelof-hypothesis-143) — Lindelöf for X0(143) — GRH → μ=0 → |ζ(½+it)|=O(t^ε) unconditional via S4
 
-**`#print axioms` is the source of truth.** All repos: `{propext, Classical.choice, Quot.sound}` only.
+[eutheos-property](https://github.com/DavidFox998/eutheos-property) — Barrier bypass — 1419=3*11*43, 35 brothers ≡153 mod 211, barriers BGS/RR/AW all PASS — P vs NP study side
 
-### 4 RH Routes — Same C
+[poincare-spectral](https://github.com/DavidFox998/poincare-spectral) — Spectral gap — S³/I*, q=1/8, tail_26s10⁻²⁰, spectral_gap>0 — decidable instance of undecidable gap problem
 
-**[riemann-arakelov-positivity](https://github.com/DavidFox998/riemann-arakelov-positivity)** — Route A — `ω²=48/13>0`
-**[arakelov-rh-descent](https://github.com/DavidFox998/arakelov-rh-descent)** — Route B — `λ₁≥975/4096` → `S14`
-**[rh-growth-contradiction](https://github.com/DavidFox998/rh-growth-contradiction)** — Route C — `C>2√13` Poussin
-**[brothers-desert-proof](https://github.com/DavidFox998/brothers-desert-proof)** — Route D — `S4={2,3,19,191}` desert 192..1000
+[p-vs-np](https://github.com/DavidFox998/p-vs-np) — P vs NP mechanics — 225 bricks, ConductorHash, conditional SAT∉P→P≠NP — DOI 10.5281/zenodo.21303093
 
-## Opera Numerorum — 16 repos
+[hodge-abelian-boundaries](https://github.com/DavidFox998/hodge-abelian-boundaries) — ← this repo — 200 measured classes for g=3, 4, 5, plus the two J₀(26) factors `26a1` and `26b1`
 
-**[arakelov-positivity-rh-core](https://github.com/DavidFox998/arakelov-positivity-rh-core) — ROOT V2** — Arakelov height `ω²=48/13>0`; Zoe-M\*, M4 10^4000 boundary — provides the height input that all four RH voices reuse
+[yang-mills-gap](https://github.com/DavidFox998/yang-mills-gap) — Yang-Mills mass gap — SU(2) on R⁴, p<1/7, Δ>0, Wilson area law — same gap structure as C(S4)-2√13
 
-**[rh-p5-bridge-14](https://github.com/DavidFox998/rh-p5-bridge-14) — Keystone** — `q5=226`, `q6=165849`, `cf_bound=82829` — reduces infinite `S_α0` to finite `S₁₄`; closes `BSD_143_PROVED → RiemannHypothesis`
+[navier-stokes](https://github.com/DavidFox998/navier-stokes) — Navier-Stokes — Path A ESS backward uniqueness + Path B 120-cell H¹ balance — NS_M6_PROVED, no blowup
 
-**[riemann-arakelov-positivity](https://github.com/DavidFox998/riemann-arakelov-positivity) — Route A · Act I** — Abbes-Ullmo `ω²=48/13>0`; a Siegel zero would force negative height — CLOSED via S₄
+[zerobeacon](https://github.com/DavidFox998/zerobeacon) — MCP server — 1000 collision-proof tools; beacon 1d2c7a5b, m4.out = Complete: True
 
-**[arakelov-rh-descent](https://github.com/DavidFox998/arakelov-rh-descent) — Route B · Act II** — Kim-Sarnak `λ₁≥975/4096` → Selberg trace = Bost-Connes → GRH for X₀(143) → RH — 35pp BC6 CLOSED via S₄
+[beal-conjecture](https://github.com/DavidFox998/beal-conjecture) — Beal Level 26 — beal-v38 EQUIV:3 a2a23292 PR25 792b3f8 chartOfModelTrue_injective_from_Ei_constraint B=1 nonzero Y³≠0 Y³ outside cusp centreNormalPoly (X³-1)0 outside I² centreAlphaBound 2 0=1 X+V² outside cusp ann(1+Y·S³)≠ann(X²) [propext,choice,Quot.sound] 7 thm 355 + beal-v39-even 1fc6071→6f921f45 — www.beal-conjecture.com — DOI 10.5281/zenodo.23120540 superseded by 02728795 — pattern for opera 19→1
 
-**[rh-growth-contradiction](https://github.com/DavidFox998/rh-growth-contradiction) — Route C · Act III** — Littlewood Ω `exp(c√(log t / log log t))` beats `(log t)²`; zero repulsion → RH — CLOSED via S₄
+[opera-sieve](https://github.com/DavidFox998/opera-sieve) — Canonical sieve for S(alpha_0=299+π/10): computational + Lean verification
 
-**[brothers-desert-proof](https://github.com/DavidFox998/brothers-desert-proof) — Route D · Act IV** — Dirichlet jitter `‖p·α₀‖<1/p`, 35 brothers collision-free swarming; orbit stability forces `Re=1/2` — CLOSED via S₄
+[birch-swinnerton-dyer-143](https://github.com/DavidFox998/birch-swinnerton-dyer-143) — BSD 143 — unconditional BSD for 143a1 — Rank=ord_L=1
 
-**[bost-connes](https://github.com/DavidFox998/bost-connes) — Arithmetic hub** — `C(S₄)=11.422...>2√13`, Gates M1–M3→M4–M8, 21 bricks 0 sorry — #173 GREEN
+## Build
 
-**[birch-swinnerton-dyer-143a1](https://github.com/DavidFox998/birch-swinnerton-dyer-143a1) — BSD 143a1** — rank 1, Heegner point `(4,6)`, `L(143a1,1)≠0`, `|Sha|=1` — worked example of M1–M5 arithmetic in action
+Lean `v4.12.0`, Mathlib `v4.12.0`, from `lean-toolchain` and `lakefile.lean`.
 
-**[lindelof-hypothesis-143](https://github.com/DavidFox998/lindelof-hypothesis-143) — Lindelöf for X₀(143)** — GRH → `μ=0` → `|ζ(½+it)|=O(t^ε)` unconditional via S₄
+```
+lake exe cache get
+lake build
+lake build HodgeAbelianStandalone
+```
 
-**[eutheos-property](https://github.com/DavidFox998/eutheos-property) — Barrier bypass** — `1419=3×11×43`, 35 brothers `≡153 mod 211`, barriers BGS/RR/AW all PASS — P vs NP study side
+`lake build` is the default library `Hodge` (`lean/C01` … `lean/C08`). `HodgeAbelianStandalone` is the J₀(26) module `Hodge.Abelian.G1_J0_26.J0_26_Two_Varieties_Standalone`.
 
-**[poincare-spectral](https://github.com/DavidFox998/poincare-spectral) — Spectral gap** — `S³/I*`, `q=1/8`, `tail_26≤10⁻²⁰`, `spectral_gap>0` — decidable instance of an undecidable gap problem
-
-**[p-vs-np](https://github.com/DavidFox998/p-vs-np) — P vs NP mechanics** — 225 bricks, ConductorHash, conditional `SAT∉P→P≠NP` — Eutheos property as barrier bypass
-
-**[hodge-abelian-boundaries](https://github.com/DavidFox998/hodge-abelian-boundaries) — Hodge obstructions** ← **this repo** — 200 measured rank obstructions for `g=3,4,5`; `observed_rank>criterionBound` for each
-
-**[yang-mills-gap](https://github.com/DavidFox998/yang-mills-gap) — Yang-Mills mass gap** — `SU(2)` on `ℝ⁴`, `ρ<1/7`, `Δ>0`, Wilson area law — same gap structure as `C(S₄)−2√13`
-
-**[navier-stokes](https://github.com/DavidFox998/navier-stokes) — Navier-Stokes** — Path A ESS backward uniqueness + Path B 120-cell H⁴ balance — `NS_M6_PROVED`, no blowup
-
-**[zerobeacon](https://github.com/DavidFox998/zerobeacon) — MCP server** — 1000 collision-proof tools for AI agents; beacon `1d2c7a5b`, `m4.out = Complete: True`
-
----
-
-ORCID: [0009-0008-1290-6105](https://orcid.org/0009-0008-1290-6105) · Archive: [pistus-theoria](https://github.com/DavidFox998/pistus-theoria) — `OperaNumerorum_MasterEquations.pdf SHA 7f6b31b4`
-**Ensemble:** `sha256:e1617bc96018da4577f153f2e0cd8cc4eda1183434a9624b6cefaedc655db6c5` · hub [`rh-p5-bridge-14`](https://github.com/DavidFox998/rh-p5-bridge-14) · anchor `d04e4bd1`
 ## Author
 
 David J. Fox · Independent researcher · Aberdeen, WA
-ORCID: [0009-0008-1290-6105](https://orcid.org/0009-0008-1290-6105) · Opera Numerorum — 2026
+ORCID: [0009-0008-1290-6105](https://orcid.org/0009-0008-1290-6105)

@@ -1,0 +1,92 @@
+{
+  "J0_dimension": 2,
+  "boundary": "SageMath output for the abelian-variety decomposition of J0(26). This is not a Mathlib scheme-theoretic Jacobian, and certified_mwrank is the Sage rank() computation, not a cohomological Mordell-Weil theorem.",
+  "decomposition": [
+    {
+      "a_invariants": [
+        1,
+        0,
+        1,
+        -5,
+        -8
+      ],
+      "abelian_label": "26a(1,26)",
+      "c4": 217,
+      "c6": 6371,
+      "certified_mwrank": 0,
+      "conductor": 26,
+      "cremona_label": "26a1",
+      "dimension": 1,
+      "discriminant": -17576,
+      "qexp_a0_to_a20": [
+        0,
+        1,
+        -1,
+        1,
+        1,
+        -3,
+        -1,
+        -1,
+        -1,
+        -2,
+        3,
+        6,
+        1,
+        1,
+        1,
+        -3,
+        1,
+        -3,
+        2,
+        2,
+        -3
+      ]
+    },
+    {
+      "a_invariants": [
+        1,
+        -1,
+        1,
+        -3,
+        3
+      ],
+      "abelian_label": "26b(1,26)",
+      "c4": 129,
+      "c6": -2241,
+      "certified_mwrank": 0,
+      "conductor": 26,
+      "cremona_label": "26b1",
+      "dimension": 1,
+      "discriminant": -1664,
+      "qexp_a0_to_a20": [
+        0,
+        1,
+        1,
+        -3,
+        1,
+        -1,
+        -3,
+        1,
+        1,
+        6,
+        -1,
+        -2,
+        -3,
+        -1,
+        1,
+        3,
+        1,
+        -3,
+        6,
+        6,
+        -1
+      ]
+    }
+  ],
+  "genus_arithmetic_26": 2,
+  "level": 26,
+  "picard_compatible_dim_eq_genus_arithmetic": true,
+  "previous": "v1.2.1",
+  "sagemath_version": "10.7",
+  "version": "v1.3.0"
+}
