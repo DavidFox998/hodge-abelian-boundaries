@@ -21,6 +21,6 @@ jobs:
       - name: Get mathlib cache
         run: lake exe cache get
       - name: lake build
-        run: lake build
+        run: lake build && lake build HodgeAbelianStandalone
       - name: SHA256 verification
-        run: find lean/ -name "*.lean" -exec sha256sum {} \; | sort
+        run: find lean/ Hodge/Abelian -name "*.lean" -exec sha256sum {} \; | sort

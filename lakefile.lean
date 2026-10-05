@@ -21,3 +21,9 @@ lean_lib Hodge where
     .one `C07_Abelian,
     .one `C08_HodgeClasses
   ]
+
+-- Standalone J0(26) factors. No Mathlib import. Not part of the default Hodge lib,
+-- whose srcDir is lean/.
+lean_lib HodgeAbelianStandalone where
+  srcDir := "."
+  globs := #[.one `Hodge.Abelian.G1_J0_26.J0_26_Two_Varieties_Standalone]
